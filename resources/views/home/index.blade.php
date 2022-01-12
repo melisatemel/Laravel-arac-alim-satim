@@ -7,6 +7,7 @@
 @section('keywords','Alım','Satım','İlan Ekleme')
 
 @section('content')
+    @include('home._header')
     @include('home._slider')
 
   <div class="site-section site-section-sm pb-0">

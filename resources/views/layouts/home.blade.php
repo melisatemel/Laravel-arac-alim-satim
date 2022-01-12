@@ -27,6 +27,11 @@
 
     <link rel="stylesheet" href="{{ asset('assets')}}/css/style.css">
     
+    @yield('css')
+    @yield('headerjs')
+
+
+
   </head>
   <body>
 @section('content')
@@ -35,6 +40,7 @@ içerik alanı
 
 @include('home._header')
 @include('home._footer')
+@yield('footerjs')
 
 
 
