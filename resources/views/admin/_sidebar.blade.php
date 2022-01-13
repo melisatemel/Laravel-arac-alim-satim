@@ -23,6 +23,11 @@
             
             </li>
             <li>
+                <a href="{{route('admin_arac')}}">
+                    <span class="nav-label">İlanlar</span></a>
+            
+            </li>
+            <li>
                 <a href="javascript:;"><i class="sidebar-item-icon fa fa-table"></i>
                     <span class="nav-label">Tables</span><i class="fa fa-angle-left arrow"></i></a>
                 <ul class="nav-2-level collapse">

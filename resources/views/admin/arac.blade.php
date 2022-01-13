@@ -1,11 +1,11 @@
 @extends('layouts.admin')
-@section('title','Kategori Listesi')
+@section('title','İlan Listesi')
 
 @section('content')
 
 <div class="page-heading">
-                <h1 class="page-title">Kategoriler</h1>
-                <a class="btn btn-primary" href="{{route('admin_category_add')}}">Kategori ekleme</a>
+                <h1 class="page-title">İlanlar</h1>
+                <a class="btn btn-primary" href="{{route('admin_arac_add')}}">İlan ekleme</a>
 
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
@@ -16,19 +16,25 @@
             <div class="page-content fade-in-up">
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Veri Tablosu</div>
+                        <div class="ibox-title">İlan Tablosu</div>
                     </div>
                     <div class="ibox-body">
                         <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Parent Id</th>
                                     <th>Title</th>
-                                    <th>Keywords</th>
-                                    <th>Description</th>
+                                    <th>İlan Tarihi</th>
                                     <th>Image</th>
+                                    <th>Marka</th>
+                                    <th>Seri</th>
+                                    <th>Model</th>
+                                    <th>Yıl</th>
+                                    <th>Vites Tipi</th>
+                                    <th>KM</th>
+                                    <th>Durumu</th>
                                     <th>Status</th>
+                                    <th>Fiyat</th>
                                     <th>Düzenle</th>
                                     <th>Sil</th>
                                 </tr>
@@ -36,12 +42,18 @@
                             <tfoot>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Parent Id</th>
                                     <th>Title</th>
-                                    <th>Keywords</th>
-                                    <th>Description</th>
+                                    <th>İlan Tarihi</th>
                                     <th>Image</th>
+                                    <th>Marka</th>
+                                    <th>Seri</th>
+                                    <th>Model</th>
+                                    <th>Yıl</th>
+                                    <th>Vites Tipi</th>
+                                    <th>KM</th>
+                                    <th>Durumu</th>
                                     <th>Status</th>
+                                    <th>Fiyat</th>
                                     <th>Düzenle</th>
                                     <th>Sil</th>
                                 </tr>
@@ -50,14 +62,20 @@
                                 @foreach($datalist as $rs)
                                 <tr>
                                     <td>{{ $rs->id }}</td>
-                                    <td>{{ $rs->parent_id }}</td>
                                     <td>{{ $rs->title }}</td>
-                                    <td>{{ $rs->keywords }}</td>
-                                    <td>{{ $rs->description }}</td>
+                                    <td>{{ $rs->ilan_tarihi }}</td>
                                     <td>{{ $rs->image }}</td>
+                                    <td>{{ $rs->brand_id }}</td>
+                                    <td>{{ $rs->seri }}</td>
+                                    <td>{{ $rs->model }}</td>
+                                    <td>{{ $rs->yil }}</td>
+                                    <td>{{ $rs->vites_tipi }}</td>
+                                    <td>{{ $rs->km }}</td>
+                                    <td>{{ $rs->durum }}</td>
                                     <td>{{ $rs->status }}</td>
-                                    <td><a href="{{route('admin_category_edit',['id'=> $rs->id])}}">Düzenle</a></td>
-                                    <td><a href="{{route('admin_category_delete',['id'=> $rs->id])}}" onclick="return confirm ('Silmek istediğinize emin misiniz?')" > Sil</a></td>
+                                    <td>{{ $rs->price }}</td>
+                                    <td><a href="{{route('admin_arac_edit',['id'=> $rs->id])}}">Düzenle</a></td>
+                                    <td><a href="{{route('admin_arac_delete',['id'=> $rs->id])}}" onclick="return confirm ('Silmek istediğinize emin misiniz?')" > Sil</a></td>
                                 </tr>
                                 @endforeach 
                             </tbody>
