@@ -4,8 +4,9 @@
 
 <div class="content"style="margin-left:auto; margin-right:auto; margin-top: 5%; width:50%;">
     <div class="brand">
-        <a class="link" routerLink="/index">AdminCAST</a>
+        <a class="link" routerLink="/index">Admin Paneli</a>
     </div>
+    @include('home.message')
     <form action="{{ route('admin_logincheck') }}" method="post">
         @csrf <!-- Güvenlik kontrolü// sadece bu web sitesinden form kontrolünü alıyor-->
         <h2 class="login-title">Giriş</h2>
@@ -31,7 +32,7 @@
             <button class="btn btn-info btn-block" type="submit">Giriş</button>
         </div>
         <div class="social-auth-hr">
-            <span>Or login with</span>
+            <span>Yada bunlarla giriş yapın</span>
         </div>
         <div class="text-center social-auth m-b-20">
             <a class="btn btn-social-icon btn-twitter m-r-5" href="javascript:;"><i class="fa fa-twitter"></i></a>

@@ -23,9 +23,9 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Kategori</th>
                                     <th>Title</th>
                                     <th>İlan Tarihi</th>
-                                    <th>Image</th>
                                     <th>Marka</th>
                                     <th>Seri</th>
                                     <th>Model</th>
@@ -35,6 +35,9 @@
                                     <th>Durumu</th>
                                     <th>Status</th>
                                     <th>Fiyat</th>
+                                    <th>Şehir</th>
+                                    <th>Resim</th>
+                                    <th>Resim Galerisi</th>
                                     <th>Düzenle</th>
                                     <th>Sil</th>
                                 </tr>
@@ -42,9 +45,9 @@
                             <tfoot>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Kategori</th>
                                     <th>Title</th>
                                     <th>İlan Tarihi</th>
-                                    <th>Image</th>
                                     <th>Marka</th>
                                     <th>Seri</th>
                                     <th>Model</th>
@@ -54,6 +57,9 @@
                                     <th>Durumu</th>
                                     <th>Status</th>
                                     <th>Fiyat</th>
+                                    <th>Şehir</th>
+                                    <th>Resim</th>
+                                    <th>Resim Galerisi</th>
                                     <th>Düzenle</th>
                                     <th>Sil</th>
                                 </tr>
@@ -62,20 +68,32 @@
                                 @foreach($datalist as $rs)
                                 <tr>
                                     <td>{{ $rs->id }}</td>
+                                    <td>{{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category,$rs->category->title)}}</td>
                                     <td>{{ $rs->title }}</td>
-                                    <td>{{ $rs->ilan_tarihi }}</td>
-                                    <td>{{ $rs->image }}</td>
+                                    <td>{{ $rs->listing_date }}</td>
                                     <td>{{ $rs->brand_id }}</td>
-                                    <td>{{ $rs->seri }}</td>
+                                    <td>{{ $rs->serial }}</td>
                                     <td>{{ $rs->model }}</td>
-                                    <td>{{ $rs->yil }}</td>
-                                    <td>{{ $rs->vites_tipi }}</td>
+                                    <td>{{ $rs->year }}</td>
+                                    <td>{{ $rs->gear_type }}</td>
                                     <td>{{ $rs->km }}</td>
-                                    <td>{{ $rs->durum }}</td>
+                                    <td>{{ $rs->case }}</td>
                                     <td>{{ $rs->status }}</td>
                                     <td>{{ $rs->price }}</td>
-                                    <td><a href="{{route('admin_arac_edit',['id'=> $rs->id])}}">Düzenle</a></td>
-                                    <td><a href="{{route('admin_arac_delete',['id'=> $rs->id])}}" onclick="return confirm ('Silmek istediğinize emin misiniz?')" > Sil</a></td>
+                                    <td>{{ $rs->city }}</td>
+                                    <td>
+                                        @if($rs->image)
+                                            <img src="{{Storage::url($rs->image)}}" height="30" alt="">
+                                        @endif
+                                    </td>
+                                    <td><a href="{{route('admin_image_add',['arac_id'=> $rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
+                                         Galeri  
+                                    <i class="fa fa-image"></i></a></td>
+                                    
+
+                                    <td style="text-align: center;"><a href="{{route('admin_arac_edit',['id'=> $rs->id])}}"> <i class="fa fa-edit fa-lg"></i></a></td>
+                                    <td><a href="{{route('admin_arac_delete',['id'=> $rs->id])}}" onclick="return confirm ('Silmek istediğinize emin misiniz?')" ><i class="fa fa-trash fa-lg"></i>
+</a></td>
                                 </tr>
                                 @endforeach 
                             </tbody>

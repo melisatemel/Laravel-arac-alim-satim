@@ -1,5 +1,5 @@
 <!-- START SIDEBAR-->
-<nav class="page-sidebar" id="sidebar">
+<nav class="page-sidebar" id="sidebar" style="position:fixed;">
     <div id="sidebar-collapse">
         <div class="admin-block d-flex">
             <div>
@@ -28,27 +28,38 @@
             
             </li>
             <li>
-                <a href="javascript:;"><i class="sidebar-item-icon fa fa-table"></i>
-                    <span class="nav-label">Tables</span><i class="fa fa-angle-left arrow"></i></a>
-                <ul class="nav-2-level collapse">
-                    <li>
-                        <a href="datatables.html">Datatables</a>
-                    </li>
-                </ul>
+                <a href="{{route('admin_message')}}">
+                    <span class="nav-label">İletişim Mesajları</span></a>
+            
             </li>
 
             <li>
-                <a href="javascript:;"><i class="sidebar-item-icon fa fa-file-text"></i>
-                    <span class="nav-label">Ürünler</span><i class="fa fa-angle-left arrow"></i></a>
-                <ul class="nav-2-level collapse">
-                    <li>
-                        <a href="form_basic.html">Basic Forms</a>
-                    </li>
-                    <li>
-                        <a href="form_advanced.html">Advanced Plugins</a>
-                    </li>
-                </ul>
+                <a href="{{route('admin_faq')}}">
+                    <span class="nav-label">Sık Sorulan Sorular</span></a>
+            
             </li>
+
+
+            <li>
+                <a href="{{route('admin_users')}}">
+                    <span class="nav-label">Kullanıcılar</span></a>
+            
+            </li>
+            
+            <li>
+                <a href="{{route('admin_setting')}}">
+                    <span class="nav-label">Ayarlar</span></a>
+            
+            </li>
+
+            <li>
+                <a href="{{route('admin_review')}}">
+                    <span class="nav-label">Yorumlar</span></a>
+            
+            </li>
+
+
+         
         </ul>
     </div>
 </nav>

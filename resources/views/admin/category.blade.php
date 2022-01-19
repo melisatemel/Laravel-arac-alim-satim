@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('title','Kategori Listesi')
 
+
 @section('content')
 
 <div class="page-heading">
@@ -23,11 +24,10 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Parent Id</th>
+                                    <th>Parent</th>
                                     <th>Title</th>
                                     <th>Keywords</th>
                                     <th>Description</th>
-                                    <th>Image</th>
                                     <th>Status</th>
                                     <th>Düzenle</th>
                                     <th>Sil</th>
@@ -36,11 +36,10 @@
                             <tfoot>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Parent Id</th>
+                                    <th>Parent</th>
                                     <th>Title</th>
                                     <th>Keywords</th>
                                     <th>Description</th>
-                                    <th>Image</th>
                                     <th>Status</th>
                                     <th>Düzenle</th>
                                     <th>Sil</th>
@@ -50,11 +49,10 @@
                                 @foreach($datalist as $rs)
                                 <tr>
                                     <td>{{ $rs->id }}</td>
-                                    <td>{{ $rs->parent_id }}</td>
+                                    <td>{{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title)}}</td>
                                     <td>{{ $rs->title }}</td>
                                     <td>{{ $rs->keywords }}</td>
                                     <td>{{ $rs->description }}</td>
-                                    <td>{{ $rs->image }}</td>
                                     <td>{{ $rs->status }}</td>
                                     <td><a href="{{route('admin_category_edit',['id'=> $rs->id])}}">Düzenle</a></td>
                                     <td><a href="{{route('admin_category_delete',['id'=> $rs->id])}}" onclick="return confirm ('Silmek istediğinize emin misiniz?')" > Sil</a></td>

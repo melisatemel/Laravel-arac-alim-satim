@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title> @yield('title') </title>
-    <meta name="description" content=" @yield('description') ">
+  <title> @yield('title') </title>
+    <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
     <meta name="author" content="Melisa Temel">
     <meta charset="utf-8">
@@ -26,23 +26,35 @@
     <link rel="stylesheet" href="{{ asset('assets')}}/css/aos.css">
 
     <link rel="stylesheet" href="{{ asset('assets')}}/css/style.css">
-    
     @yield('css')
     @yield('headerjs')
-
+<style>
+  .site-section{
+    padding: 0;
+  }
+  </style>
 
 
   </head>
   <body>
-@section('content')
-içerik alanı
-@show
+    
+  @include('home._header')
+ 
 
-@include('home._header')
+  @section('content')
+  @show
+  
 @include('home._footer')
 @yield('footerjs')
 
-
-
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<script>
+    $(function() {
+        $("#accordion").accordion();
+    });
+</script>
   </body>
 </html>

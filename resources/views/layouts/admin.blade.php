@@ -21,6 +21,8 @@
 </head>
 
 <body class="fixed-navbar">
+    
+    
     <div class="page-wrapper">
         @include('admin._header')
         @include('admin._sidebar')
